@@ -8,10 +8,12 @@ folders to the Pixel Launcher app drawer.
 - Create and arrange folders as normal app-drawer cells.
 - Sort folder contents and four-icon previews alphabetically.
 - Optionally keep folder apps out of the main alphabetical app list.
-- Launch apps with a tap and start the launcher drag flow with a long press.
-- Back up and restore folder assignments through Android's user-selected Files
-  storage without installing, removing, or modifying apps.
-- Preserve Android profile identity and exclude Private Space.
+- Tap to launch an app; long-press to start the launcher drag flow.
+- Back up and restore assignments through Android's user-selected Files storage.
+- Preserve Android profile identity while excluding Private Space.
+
+The module does not edit the launcher database, modify APKs, install apps, or
+read Private Space. It requires no Internet permission.
 
 ## Requirements
 
@@ -19,23 +21,24 @@ folders to the Pixel Launcher app drawer.
 - Root access with LSPosed, Vector, or a compatible Xposed framework.
 - Pixel Launcher package `com.google.android.apps.nexuslauncher`.
 
-Enable the module only for Pixel Launcher. The tested target is Pixel 11 Pro
-Fold, Android 17, Pixel Launcher 17. Other launcher versions are unverified.
-This is a beta release. Split-screen and pop-up dragging remain experimental;
-disable the module's launcher scope if an update causes problems.
+The maintained test target is Pixel 11 Pro Fold, Android 17, Pixel Launcher 17.
+Other launcher versions are unverified. Split-screen and pop-up dragging remain
+experimental; disable the module's launcher scope if an update causes problems.
 
 ## Installation
 
-1. Install the APK from [Releases](https://github.com/Xposed-Modules-Repo/com.lixingchi.pixellauncherfolder/releases).
+1. Install the APK from [Releases](https://github.com/doccstat/pixel-launcher-folder/releases).
 2. Enable Pixel Launcher Folders in LSPosed or Vector.
 3. Scope it only to `com.google.android.apps.nexuslauncher`.
 4. Restart Pixel Launcher and open the Pixel Launcher Folders settings app.
 
-## Safety and privacy
+## Backup and restore
 
-The module does not edit the launcher database, modify APKs, install apps, or
-read Private Space. Backups are written only to the Files location selected by
-the user. No Internet permission is required.
+Choose a folder through Android's document picker. Export writes editable text
+files plus a JSON manifest containing folder order, IDs, profile identity, and
+settings. Import accepts that manifest or plain `.txt` files. Import changes
+only this module's folder configuration; it never installs, removes, disables,
+or modifies applications.
 
 ## Screenshots
 
